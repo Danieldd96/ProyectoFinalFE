@@ -27,7 +27,7 @@ const Register = ()=>{
                 <button type="submit" className="btn" >Register</button>
                 
                 <div className="register-link">
-                    <p>Already have an account? <a href="#" className="registerBtn">Login</a></p>
+                    <p>Ya tienes una cuenta? <a href="#" className="registerBtn">Login</a></p>
                 </div>
             </form>
     </div>
