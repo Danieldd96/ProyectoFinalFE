@@ -1,4 +1,5 @@
-import Login from './pages/Login'
+// import Login from './pages/Login'
+import Register from './pages/Register'
 import './App.css'
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
   return (
     <>
       <div>
-        <Login></Login>
+        <Register></Register>
       </div>
       
     </>
