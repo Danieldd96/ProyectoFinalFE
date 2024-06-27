@@ -1,3 +1,8 @@
+
+.contenedorImgs img{
+    padding-left: 20px;
+    border-radius: 20px;
+}
 ul,
 li {
   list-style: none;

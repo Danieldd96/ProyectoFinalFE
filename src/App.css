@@ -53,10 +53,15 @@
   --bs-form-invalid-color: #ea868f;
   --bs-form-invalid-border-color: #ea868f;
 }
+
 body{
   background-color: #363a43;
+  color: #fff;
 }
+
 .Destacados{
-  background-color: rgb(60, 159, 159);
-  border-radius: 40px;
+  padding: 50px;
+}
+.Destacados h2{
+  padding: 20px;
 }

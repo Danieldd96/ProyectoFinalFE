@@ -1,7 +1,4 @@
 import Carrusel from "../components/Carrusel"
-
-import { dataGratis } from "../assets/dataGratis";
-import { dataOfertas } from "../assets/dataOfertas";
 import { dataDestacada } from "../assets/dataDestacada";
 const Home = ()=>{
     return(
@@ -9,16 +6,22 @@ const Home = ()=>{
             <div className="Destacados">
                 <h2>Destacados y recomendados</h2>
                 <Carrusel datos={dataDestacada} />
+                <div>
+                    <div>
+                        <h2>LIsta de juegos</h2>
+                        <div>
+                            <ul className="contenedorImgs">
+                                <div>
+                                    <h2>Elden Ring</h2>
+                                    <img src="src/img/Elden ring.jpg"  width={200} height={100}/><h2>Precio: 30000 colones</h2>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
             </div>
-            <div>
-                <h2>Juegos en oferta</h2>
-                <Carrusel datos={dataGratis} />
-            </div>
-            <div>
-                <h2>Juegos populares</h2>
-                <Carrusel datos={dataOfertas} />
-            </div>
+            
         </div>
     )
 }
