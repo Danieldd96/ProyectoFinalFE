@@ -20,7 +20,7 @@ const Login = ()=>{
                     <div className="ChangePass">
                         <a href="#">Olvidaste tu contraseña?</a>
                     </div>
-                    <button type="submit" className="btnLogin">Login</button>
+                    <button type="submit" className="btn">Login</button>
                     
                     <div className="register-link">
                         <p>No tienes una cuenta? <Link to="/registro" className="registerBtn">Register</Link></p>

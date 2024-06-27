@@ -1,5 +1,11 @@
 {
-    "users": [
-      
-    ]
-  }
+  "users": [
+    {
+      "id": "9867",
+      "user": "d",
+      "email": "daniel@gmail.com",
+      "pass": "d",
+      "state": false
+    }
+  ]
+}
