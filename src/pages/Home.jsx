@@ -1,33 +1,23 @@
 import Carrusel from "../components/Carrusel"
+
+import { dataGratis } from "../assets/dataGratis";
+import { dataOfertas } from "../assets/dataOfertas";
+import { dataDestacada } from "../assets/dataDestacada";
 const Home = ()=>{
     return(
         <div>
             <div className="Destacados">
                 <h2>Destacados y recomendados</h2>
-                <Carrusel/>
+                <Carrusel datos={dataDestacada} />
                 
             </div>
             <div>
                 <h2>Juegos en oferta</h2>
-                <ul>
-                    <li><h2></h2></li>
-                    <li><h2></h2></li>
-                    <li><h2></h2></li>
-                    <li><h2></h2></li>
-                    <li><h2></h2></li>
-                    <li><h2></h2></li>
-                </ul>
+                <Carrusel datos={dataGratis} />
             </div>
             <div>
                 <h2>Juegos populares</h2>
-                <ul>
-                    <li><h2></h2></li>
-                    <li><h2></h2></li>
-                    <li><h2></h2></li>
-                    <li><h2></h2></li>
-                    <li><h2></h2></li>
-                    <li><h2></h2></li>
-                </ul>
+                <Carrusel datos={dataOfertas} />
             </div>
         </div>
     )

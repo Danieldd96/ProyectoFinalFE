@@ -1,4 +1,4 @@
-export const data = [
+export const dataGratis = [
     {
       id: 1, imgUrl: "src/img/Apex game.jpg"
     },
@@ -6,12 +6,12 @@ export const data = [
       id: 2, imgUrl: "src/img/Overwatch.jpeg"
     },
     {
-      id: 3, imgUrl: "src/img/days gone.jpg"
+      id: 3, imgUrl: "src/img/destiny.jpg"
     },
     {
-      id: 4, imgUrl: "src/img/Star wars.jpeg"
+      id: 4, imgUrl: "src/img/fortnite.jpg"
     },
     {
-      id: 5, imgUrl: "src/img/Coldcod.jpg"
+      id: 5, imgUrl: "src/img/Honkai.jpg"
     }
   ];

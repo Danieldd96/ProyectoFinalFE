@@ -1,4 +1,4 @@
-export const data = [
+export const dataOfertas = [
     {
       id: 1, imgUrl: "src/img/Elden ring.jpg"
     },
