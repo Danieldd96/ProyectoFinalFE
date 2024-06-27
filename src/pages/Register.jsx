@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom"
+
 const Register = ()=>{
     return(
-        <div className="register hidden" >
+        <div className="register" >
+            <div className="wrapper">
             <form id="registerForm">
                 <h1>Register</h1>
                 <div className="input-box">
@@ -27,9 +30,10 @@ const Register = ()=>{
                 <button type="submit" className="btn" >Register</button>
                 
                 <div className="register-link">
-                    <p>Ya tienes una cuenta? <a href="#" className="registerBtn">Login</a></p>
+                    <p>Ya tienes una cuenta? <Link to="/login" className="registerBtn">Login</Link></p>
                 </div>
             </form>
+    </div>
     </div>
     )
 }
