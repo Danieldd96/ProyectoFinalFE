@@ -1,6 +1,7 @@
 import Carrusel from "../components/Carrusel"
 import { dataDestacada } from "../assets/dataDestacada";
 const Home = ()=>{
+    
     return(
         <div>
             <div className="Destacados">

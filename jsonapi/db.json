@@ -1,10 +1,17 @@
 {
   "users": [
     {
-      "id": "9867",
+      "id": "57a8",
       "user": "d",
       "email": "daniel@gmail.com",
-      "pass": "d",
+      "pass": "1",
+      "state": false
+    },
+    {
+      "id": "e6cb",
+      "user": "Dani",
+      "email": "daniel@gmail.com",
+      "pass": "1",
       "state": false
     }
   ]
