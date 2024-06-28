@@ -1,6 +1,6 @@
 import { Link,useNavigate } from "react-router-dom"
 import { useState } from "react";
-import darDatos from "../hooks/Post";
+import {darDatos} from "../hooks/Post";
 
 const Register = ()=>{
     const navegar = useNavigate('')
@@ -12,8 +12,7 @@ const Register = ()=>{
         if (!user&&!email&&!pass&&!repass) { 
             alert("Inserte texto por favor")
           }else{
-            console.log("Entra");
-            alert("hola")
+            console.log("Entrando");
             let usuarios={
                 user:user,
                 email:email,
@@ -21,7 +20,10 @@ const Register = ()=>{
                 state:false
             }
             await darDatos(usuarios)
-            navegar('/login')
+            setTimeout(() => {
+                navegar('/login')
+                
+            }, 1000);
           }
         }
     return(
@@ -50,7 +52,7 @@ const Register = ()=>{
                     required id="password2" onChange={(e)=>setRePass(e.target.value)}/>
                 </div>
 
-                <button type="submit" onClick={Guardar} className="btn" >Register</button>
+                <button type="button" onClick={Guardar} className="btn" >Register</button>
                 
                 <div className="register-link">
                     <p>Ya tienes una cuenta? <Link to="/login" className="registerBtn">Login</Link></p>

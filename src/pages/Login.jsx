@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import {  useState } from "react"
 import { Link } from "react-router-dom"
-import Get from "../hooks/Get"
+import {Get} from "../hooks/Get"
 
 const Login = ()=>{
     const navegar = useNavigate();
@@ -26,7 +26,10 @@ const Login = ()=>{
             localStorage.setItem("email", emailRegistrado);
             localStorage.setItem("idUsuario", idRegistrado);
             localStorage.setItem("usuario", userName);
-            navegar("/");
+            setTimeout(() => {
+              
+              navegar("/");
+            }, 1000);
           }
         });
     

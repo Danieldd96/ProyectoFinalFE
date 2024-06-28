@@ -10,9 +10,9 @@ async function darDatos(objeto){
         })
         const datos = await respuesta.json()
         console.log(datos)
-        console.log(`Se agregò un usuario ${listaTareas.tarea}`);
+        console.log(`Se agregò un usuario`);
     } catch (error) {
         console.error(error);
     }
 }
-export default darDatos
+export{darDatos}

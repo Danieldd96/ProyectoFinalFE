@@ -20,4 +20,4 @@ async function actualizarTarea(element) {///En este metodo cambiaremos el estado
     
 }
 
-export default actualizarTarea
+export {actualizarTarea}

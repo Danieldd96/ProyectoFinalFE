@@ -1,16 +1,15 @@
 import { Flex, AlertDialog, Button,Theme, DataList,Badge,Code,IconButton  } from '@radix-ui/themes';
-import { Link } from 'react-router-dom';
-import deleteData from '../hooks/Delete';
+import { Link,useNavigate } from 'react-router-dom';
+import {deleteData}  from '../hooks/Delete';
 const Perfil = ()=>{
+    const navegar=useNavigate()
     const name =localStorage.getItem("usuario")
     const id =localStorage.getItem("idUsuario")
     const mail =localStorage.getItem("email")
     const handleDeleteClick = async (id) => {      {/*con esta funcion elimino la tarea*/}
-    // const limpiar =localStorage.clear()
-    // const navegar=useNavigate('')
+        localStorage.clear()
         await deleteData(id);
-        // navegar('/')
-        // limpiar()
+        navegar('/')
     };
     return(
         <div className='contPrefil'>

@@ -9,4 +9,4 @@ async function Get() {
     }
 
 };
-export default Get
+export {Get}

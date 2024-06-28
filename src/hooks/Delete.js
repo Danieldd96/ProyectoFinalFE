@@ -1,6 +1,6 @@
 async function deleteData(id) {
     try {
-        const response = await fetch(`http://localhost:3001/users${id}`,{
+        const response = await fetch(`http://localhost:3001/users/${id}`,{
             method:"DELETE",
             headers: {
                 "Content-type": "application/json;",
@@ -14,4 +14,4 @@ async function deleteData(id) {
        return alert("Error")
    }
 }
-export default deleteData
+export {deleteData}
