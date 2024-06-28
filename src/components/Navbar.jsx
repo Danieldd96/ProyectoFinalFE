@@ -37,7 +37,7 @@ const NavBar =()=>{
             <li><a className="dropdown-item" href="#">Biblioteca de juegos</a></li>
             <li><a className="dropdown-item" href="#">Publicar Juegos</a></li>
             <li><hr className="dropdown-divider"/></li>
-            <li><a className="dropdown-item" href="#">Acerca de</a></li>
+            <li><Link className="dropdown-item" to="/contact">Acerca de</Link></li>
             <li><a className="dropdown-item" href="/" onClick={limpiarSesion}>Cerrar sesion</a></li>
           </ul>
         </li>
