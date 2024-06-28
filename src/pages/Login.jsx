@@ -46,6 +46,7 @@ const Login = ()=>{
                     <div className="input-box">
                         <input type="text" placeholder="Correo Electronico" 
                         required id="email" onChange={(e) => setEmail(e.target.value)}/>
+                        
                     </div>
                     <div className="input-box">
                         <input type="password" 

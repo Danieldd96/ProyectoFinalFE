@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 import { useState } from "react";
 import darDatos from "../hooks/Post";
 
 const Register = ()=>{
+    const navegar = useNavigate('')
     const [user,setUser] = useState(""); 
     const [email,setEmail] = useState(""); 
     const [pass,setPass] = useState(""); 
@@ -20,7 +21,7 @@ const Register = ()=>{
                 state:false
             }
             await darDatos(usuarios)
-            
+            navegar('/login')
           }
         }
     return(
