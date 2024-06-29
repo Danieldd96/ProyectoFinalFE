@@ -1,14 +1,22 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Box, Flex, Switch, Text } from "@radix-ui/themes"
-
+import { useNavigate } from "react-router-dom"
 const NavBar =({funcionColor})=>{
   const [sesion,setSesion]=useState(false)
   const mail =localStorage.getItem("email")
+  const navegar=useNavigate()
   
   const limpiarSesion = ()=>{
     setSesion(true)
     localStorage.clear()
+  }
+  const publicar=()=>{
+    if (mail) {
+      navegar('/publicar')
+    } else {
+      navegar('/login')
+    }
   }
   
   return(
@@ -33,7 +41,7 @@ const NavBar =({funcionColor})=>{
           </a>
           <ul className="dropdown-menu">
             <li><a className="dropdown-item" href="#">Biblioteca de juegos</a></li>
-            <li><Link className="dropdown-item" to="/publicar" href="#">Publicar Juegos</Link></li>
+            <li><a className="dropdown-item" href="#" onClick={publicar}>Publicar Juegos</a></li>
             <li><hr className="dropdown-divider"/></li>
             <li><Link className="dropdown-item" to="/contact">Acerca de</Link></li>
             <li><a className="dropdown-item" href="/" onClick={limpiarSesion}>Cerrar sesion</a></li>

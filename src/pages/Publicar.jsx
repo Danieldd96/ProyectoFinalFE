@@ -5,7 +5,7 @@ import React from 'react'
 const Publicar = () => {
   return (
     <div>
-      <Box>
+      <Box p="4">
         <Heading>
             Publicar mi Juego
         </Heading>
