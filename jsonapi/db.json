@@ -1,11 +1,21 @@
 {
   "users": [
     {
-      "id": "4ae7",
+      "id": "3163",
       "user": "Dani",
       "email": "daniel@gmail.com",
       "pass": "1",
       "state": false
+    }
+  ],
+  "products": [
+    {
+      "id": "e15e",
+      "gameName": "Fire",
+      "precio": "10000",
+      "description": "Juego Gacha",
+      "fecha": "2024-06-29",
+      "img": "C:\\fakepath\\icono defecto.jpg"
     }
   ]
 }

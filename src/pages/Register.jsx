@@ -8,6 +8,7 @@ const Register = ()=>{
     const [email,setEmail] = useState(""); 
     const [pass,setPass] = useState(""); 
     const [repass,setRePass] = useState(""); 
+    let apiUrl="http://localhost:3001/users/"
     const Guardar = async()=>{ 
         if (!user&&!email&&!pass&&!repass) { 
             alert("Inserte texto por favor")
@@ -19,7 +20,7 @@ const Register = ()=>{
                 pass:pass,
                 state:false
             }
-            await darDatos(usuarios)
+            await darDatos(usuarios,apiUrl)
             setTimeout(() => {
                 navegar('/login')
                 

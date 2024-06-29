@@ -2,13 +2,14 @@ import { Flex, AlertDialog, Button,Theme, DataList,Badge,Code,IconButton  } from
 import { Link,useNavigate } from 'react-router-dom';
 import {deleteData}  from '../hooks/Delete';
 const Perfil = ()=>{
+    let apiUrl="http://localhost:3001/users/"
     const navegar=useNavigate()
     const name =localStorage.getItem("usuario")
     const id =localStorage.getItem("idUsuario")
     const mail =localStorage.getItem("email")
     const handleDeleteClick = async (id) => {      {/*con esta funcion elimino la tarea*/}
         localStorage.clear()
-        await deleteData(id);
+        await deleteData(id,apiUrl);
         navegar('/')
     };
     return(

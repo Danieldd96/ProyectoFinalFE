@@ -1,5 +1,5 @@
-async function Get() {
-    let apiUrl="http://localhost:3001/users"
+async function Get(apiUrl) {
+    
     try {
         const response = await fetch(apiUrl)
         let listarTareas =await response.json()

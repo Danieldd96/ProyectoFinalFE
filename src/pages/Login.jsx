@@ -7,11 +7,12 @@ const Login = ()=>{
     const navegar = useNavigate();
     const [email, setEmail] = useState("");
     const [clave, setClave] = useState("");
+    let apiUrl="http://localhost:3001/users/"
   
   
     const Guardar = async () => {
       try {
-        const usuarios = await Get();
+        const usuarios = await Get(apiUrl);
         
         usuarios.forEach((usuario) => {
           const emailRegistrado = usuario.email;

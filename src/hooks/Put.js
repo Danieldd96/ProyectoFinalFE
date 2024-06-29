@@ -1,7 +1,7 @@
 
 
-async function actualizarTarea(element) {///En este metodo cambiaremos el estado de la tarea actualizando la api
-    let apiUrl="http://localhost:3001/users"
+async function actualizarTarea(element,apiUrl) {///En este metodo cambiaremos el estado de la tarea actualizando la api
+    
     try {
         element.estado=!element.estado
         console.log(element)
