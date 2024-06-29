@@ -1,6 +1,7 @@
 async function deleteData(id) {
+    let apiUrl="http://localhost:3001/users/"
     try {
-        const response = await fetch(`http://localhost:3001/users/${id}`,{
+        const response = await fetch(apiUrl+id,{
             method:"DELETE",
             headers: {
                 "Content-type": "application/json;",

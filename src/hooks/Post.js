@@ -1,7 +1,8 @@
 async function darDatos(objeto){
+    let apiUrl="http://localhost:3001/users"
     try {
         
-        const respuesta = await fetch("http://localhost:3001/users",{
+        const respuesta = await fetch(apiUrl,{
            method: "POST",
            headers: {
             "Content-type": "application/json; charset=UTF-8"

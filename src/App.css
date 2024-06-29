@@ -2,10 +2,18 @@
   padding: 40px 50px;
 }
 .Destacados{
-  padding: 50px;
+  padding: 20px;
 }
 .Destacados h2{
   padding: 20px;
+}
+.contenedorImgs{
+  background-color: #333;
+  border-radius: 30px;
+}
+.listgames{
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 .register{
   display: flex;
