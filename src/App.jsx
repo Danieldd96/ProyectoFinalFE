@@ -12,14 +12,14 @@ import Publicar from './pages/Publicar';
 import { useState } from 'react';
 
 function App() {
-  const [color,setColor]=useState('light')
+  const [color,setColor]=useState('dark')
   const funcionColor=()=>{
-    if (color==="light") {
+    if (color==="dark") {
       
-      setColor('dark')
+      setColor('light')
     }
     else{
-      setColor('light')
+      setColor('dark')
     }
   }
   return (

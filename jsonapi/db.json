@@ -8,14 +8,5 @@
       "state": false
     }
   ],
-  "products": [
-    {
-      "id": "e15e",
-      "gameName": "Fire",
-      "precio": "10000",
-      "description": "Juego Gacha",
-      "fecha": "2024-06-29",
-      "img": "C:\\fakepath\\icono defecto.jpg"
-    }
-  ]
+  "products": []
 }

@@ -1,4 +1,4 @@
-import { Box,Button,Flex,Grid,Heading, Text } from '@radix-ui/themes'
+import { Box,Button,Flex,Grid,Heading,Text,AlertDialog } from '@radix-ui/themes'
 import React, { useEffect, useState } from 'react'
 import { darDatos } from '../hooks/Post';
 import { Get } from '../hooks/Get';
@@ -79,9 +79,33 @@ const Publicar = () => {
                 <p>{newgames.gameName}</p>
                 <img src={newgames.img}/>
                 <p>El precio del producto: {newgames.precio} Colones</p>
-                <form >
-                <button type="submit" onClick={()=>deleteGame(newgames.id)}>Eliminar juego</button>
-                </form>
+                <AlertDialog.Root>
+                    <AlertDialog.Trigger>
+                    <Button color="red">Eliminar Juego</Button>
+                    </AlertDialog.Trigger>
+                    
+
+                    <AlertDialog.Content maxWidth="450px">
+                    <AlertDialog.Title>Eliminar Definitivamente</AlertDialog.Title>
+                    <AlertDialog.Description size="2">
+                    Esta seguro de querer eliminar su cuenta?
+                    </AlertDialog.Description>
+
+                <Flex gap="3" mt="4" justify="end">
+                <AlertDialog.Cancel>
+                    <Button variant="soft" color="gray">
+                    Cancel
+                    </Button>
+                </AlertDialog.Cancel>
+                <AlertDialog.Action>
+                    <Button variant="solid" color="red" onClick={()=>deleteGame(newgames.id)}>
+                    Eliminar
+                    </Button>
+                </AlertDialog.Action>
+                </Flex>
+                </AlertDialog.Content>
+                </AlertDialog.Root>
+                
             </ul>
         ))}
         </div>
