@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { data } from '../assets/data';
 
-
-export const Carrusel = ({datos}) => {
+export const Carrusel = () => {
   const listRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -11,7 +11,7 @@ export const Carrusel = ({datos}) => {
 
     if (imgNode) {
       imgNode.scrollIntoView({
-        behavior: "smooth"
+        block: "end",behavior:"smooth"
       });
     }
 
@@ -25,7 +25,7 @@ export const Carrusel = ({datos}) => {
         return isFirstSlide ? 0 : curr - 1;
       })
     } else {
-      const isLastSlide = currentIndex === datos.length - 1;
+      const isLastSlide = currentIndex === data.length - 1;
       if (!isLastSlide) {
         setCurrentIndex(curr => curr + 1);
       }
@@ -40,7 +40,7 @@ export const Carrusel = ({datos}) => {
         <div className="container-images">
           <ul ref={listRef}>
             {
-              datos.map((item) => {
+              data.map((item) => {
                 return <li key={item.id}>
                   <img src={item.imgUrl} width={500} height={280} />
                 </li>

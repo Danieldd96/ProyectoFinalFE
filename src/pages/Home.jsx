@@ -1,5 +1,4 @@
 import Carrusel from "../components/Carrusel"
-import { dataDestacada } from "../assets/dataDestacada";
 import { ScrollArea } from "@radix-ui/themes";
 const Home = ()=>{
     
@@ -8,7 +7,7 @@ const Home = ()=>{
             <div className="Destacados">
                 <h2>Destacados y recomendados</h2>
                 <hr />
-                <Carrusel datos={dataDestacada} />
+                <Carrusel/>
                 <div>
                     <div>
                         <h2>LIsta de juegos</h2>

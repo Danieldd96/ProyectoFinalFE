@@ -1,4 +1,4 @@
-export const dataDestacada = [
+export const data = [
     {
       id: 1, imgUrl: "src/img/Elden ring.jpg"
     },

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, DataList,Badge,Code,IconButton,Box,Heading,Text  } from '@radix-ui/themes';
+import { Flex, DataList,Badge,Box,Heading,Text  } from '@radix-ui/themes';
 import { Link } from '@radix-ui/themes';
 const Contact = () => {
   return (
