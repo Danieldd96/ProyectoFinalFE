@@ -1,12 +1,13 @@
 {
-  "users": [
+  "users": [],
+  "products": [
     {
-      "id": "3163",
-      "user": "Dani",
-      "email": "daniel@gmail.com",
-      "pass": "1",
-      "state": false
+      "id": "dec8",
+      "gameName": "Fire1",
+      "precio": "",
+      "description": "sdsd",
+      "fecha": "2024-06-29",
+      "img": ""
     }
-  ],
-  "products": []
+  ]
 }

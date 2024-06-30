@@ -9,7 +9,7 @@ const Perfil = ()=>{
     const mail =localStorage.getItem("email")
     const handleDeleteClick = async (id) => {      {/*con esta funcion elimino la tarea*/}
         localStorage.clear()
-        await deleteData(id,apiUrl);
+        await deleteData(apiUrl,id);
         navegar('/')
     };
     return(
