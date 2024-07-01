@@ -14,6 +14,7 @@ const Publicar = () => {
     const [description,setDescrip] = useState("");
     const [date,setFecha] = useState("");
     const [lista,setLista]=useState([])
+
     useEffect(()=>{
         
         const ListarProductos=async()=>{
@@ -38,9 +39,21 @@ const Publicar = () => {
     const deleteGame= async(id)=>{
         await deleteData(productsUrl,id)
     };
+
+    function handleFileSelect(event) {
+        const file = event.target.files[0]; 
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const fileContent = e.target.result;
+                setImg(fileContent);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
   return (
     <div>
-      <Box p="4">
+      <Box p="8">
         <Heading>
             Publicar mi Juego
         </Heading>
@@ -51,15 +64,15 @@ const Publicar = () => {
             <label>Nombre del juego</label>
             <input type="text" onChange={(e)=>setGame(e.target.value)}required/>
             <label>Precio</label>
-            <input type="number" onChange={(e)=>setPrecio(e.target.value)} required/>
+            <input type="text" onChange={(e)=>setPrecio(e.target.value)} required/>
             <label>Descripcion</label>
             <input type="text" onChange={(e)=>setDescrip(e.target.value)} required/>
             <label>Fecha de Publicacion</label>
             <input type="date" onChange={(e)=>setFecha(e.target.value)} required/>
             <label>Adjuntar Imagen del juego</label>
-            <input type="file" name="imagen" onChange={(e)=>setImg(e.target.value)}required/>
+            <input type="file" name="imagen" onChange={(e)=>setImg(handleFileSelect(e))}required/>
             
-            <Button type='button' onClick={()=>newgames()}>
+            <Button type='submit' onClick={()=>newgames()}>
                 publicar
             </Button>
             </Grid>
@@ -68,17 +81,18 @@ const Publicar = () => {
         </Box>
         <Flex>
             
-        <Box p="3">
-        <Text>
+        <Box style={{paddingTop:'30px'}}>
+        <Text size={"7"}>
             Juegos publicados
         </Text>
         <div>
             
         {lista.map((newgames)=>(
             <ul key={newgames.id}>
-                <p>{newgames.gameName}</p>
-                <img src={newgames.img}/>
-                <p>El precio del producto: {newgames.precio} Colones</p>
+                <p style={{fontSize:"28PX"}}>{newgames.gameName}</p>
+                <img src={newgames.img} style={{width:"300px",height:"170px"}}/>
+                <p style={{paddingTop:'20px'}}>Fecha de publicacion: <br/>{newgames.fecha}</p>
+                <p>El precio del producto: <br/>{newgames.precio} Colones</p>
                 <AlertDialog.Root>
                     <AlertDialog.Trigger>
                     <Button color="red">Eliminar Juego</Button>
