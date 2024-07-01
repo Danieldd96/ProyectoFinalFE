@@ -1,29 +1,29 @@
 import { Box,Button,Flex,Grid,Heading,Text,AlertDialog } from '@radix-ui/themes'
 import React, { useEffect, useState } from 'react'
 import { darDatos } from '../hooks/Post';
-import { Get } from '../hooks/Get';
+import { Get, GetByUser } from '../hooks/Get';
 import { deleteData } from '../hooks/Delete';
 
 
 
 const Publicar = () => {
-    const productsUrl="http://localhost:3001/products/"
+    const productsUrl="http://localhost:3001/products?userID="
     const [game,setGame] = useState("");
     const [precio,setPrecio] = useState("");
     const [image,setImg] = useState("");
     const [description,setDescrip] = useState("");
     const [date,setFecha] = useState("");
     const [lista,setLista]=useState([])
-
+    const [reload,setReload] = useState(null)
+    const [reloadD,setReloadD] = useState(null)
     useEffect(()=>{
         
         const ListarProductos=async()=>{
-            const Lista=await Get(productsUrl)
+            const Lista=await GetByUser(productsUrl,localStorage.getItem("idUsuario"))
             setLista(Lista)
         }
         ListarProductos()
-    },[]);
-    console.log(lista)
+    },[reload,reloadD]);
     
     const newgames=async()=>{
 
@@ -32,12 +32,16 @@ const Publicar = () => {
             precio:precio,
             description:description,
             fecha:date,
-            img:image
+            img:image,
+            userID:localStorage.getItem("idUsuario")
         }
         await darDatos(games,productsUrl)
+        setReload(true)
     };
     const deleteGame= async(id)=>{
         await deleteData(productsUrl,id)
+        setReloadD(true)
+
     };
 
     function handleFileSelect(event) {
@@ -72,7 +76,7 @@ const Publicar = () => {
             <label>Adjuntar Imagen del juego</label>
             <input type="file" name="imagen" onChange={(e)=>setImg(handleFileSelect(e))}required/>
             
-            <Button type='submit' onClick={()=>newgames()}>
+            <Button type='button' onClick={()=>newgames()}>
                 publicar
             </Button>
             </Grid>

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { Box, Flex, Switch, Text } from "@radix-ui/themes"
+import { Flex, Switch,Button } from "@radix-ui/themes"
 import { useNavigate } from "react-router-dom"
 const NavBar =({funcionColor})=>{
   const [sesion,setSesion]=useState(false)
@@ -17,6 +17,9 @@ const NavBar =({funcionColor})=>{
     } else {
       navegar('/login')
     }
+  }
+  const carrito=()=>{
+    navegar('/carrito')
   }
   
   return(
@@ -47,14 +50,9 @@ const NavBar =({funcionColor})=>{
             <li><a className="dropdown-item" href="/" onClick={limpiarSesion}>Cerrar sesion</a></li>
           </ul>
         </li>
-        
       </ul>
-        <Box p="2">
-        <Text color="cyan">
-          Color de la pagina
-        </Text>
-
-        </Box>
+        <Button onClick={carrito}>Carrito</Button>
+        
       <Flex>
       <Switch variant="classicsoft" color="cyan" onClick={funcionColor} />
       </Flex>

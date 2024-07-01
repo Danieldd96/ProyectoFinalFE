@@ -24,7 +24,7 @@ const Home = ()=>{
                 <Carrusel/>
                 <div>
                     <div className="listgames">
-                        <h2>LIsta de juegos</h2>
+                        <h2>Lista de juegos</h2>
                         <div >
                             <hr style={{paddingBottom:50}}/>
                             <ul >
@@ -32,7 +32,7 @@ const Home = ()=>{
                             <ScrollArea type="always" scrollbars="vertical" style={{ width:800, height: 380 }}>
                                 <div>
                                     <ul>
-                                    <p style={{fontSize:"28PX"}}>Elden Ring</p>
+                                    <p style={{fontSize:"28PX"}}>Overwatch 2</p>
                                     <img src="src/img/Overwatch.jpeg"  width={300} height={170}/><p>Precio: <br />30000 colones</p>
                                     <AlertDialog.Root>
                                             <AlertDialog.Trigger>
@@ -60,7 +60,7 @@ const Home = ()=>{
                                         </Flex>
                                         </AlertDialog.Content>
                                         </AlertDialog.Root>
-                                    <p style={{fontSize:"28PX"}}>Elden Ring</p>
+                                    <p style={{fontSize:"28PX"}}>Days Gone</p>
                                     
                                     <img src="src/img/days gone.jpg"  width={300} height={170}/><p>Precio: <br />30000 colones</p>
                                     <AlertDialog.Root>
@@ -89,7 +89,7 @@ const Home = ()=>{
                                         </Flex>
                                         </AlertDialog.Content>
                                         </AlertDialog.Root>
-                                    <p style={{fontSize:"28PX"}}>Elden Ring</p>
+                                    <p style={{fontSize:"28PX"}}>Honkai Star Rail</p>
                                     <img src="src/img/Honkai.jpg"  width={300} height={170}/><p>Precio: <br />30000 colones</p>
                                     <AlertDialog.Root>
                                             <AlertDialog.Trigger>
@@ -117,7 +117,7 @@ const Home = ()=>{
                                         </Flex>
                                         </AlertDialog.Content>
                                         </AlertDialog.Root>
-                                    <p style={{fontSize:"28PX"}}>Elden Ring</p>
+                                    <p style={{fontSize:"28PX"}}>Pubg</p>
                                     <img src="src/img/Pubg.jpg"  width={300} height={170}/><p>Precio: <br />30000 colones</p>
                                     <AlertDialog.Root>
                                             <AlertDialog.Trigger>

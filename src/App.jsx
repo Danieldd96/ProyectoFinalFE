@@ -10,6 +10,7 @@ import { Theme } from '@radix-ui/themes';
 import Contact from './pages/Contact';
 import Publicar from './pages/Publicar';
 import { useState } from 'react';
+import Carrito from './pages/Carrito';
 
 function App() {
   const [color,setColor]=useState('dark')
@@ -33,6 +34,7 @@ function App() {
         <Route path='/perfil' element={<Perfil/>}></Route>
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/publicar' element={<Publicar/>}></Route>
+        <Route path='/carrito' element={<Carrito/>}></Route>
 
         </Routes>
         </Theme>

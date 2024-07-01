@@ -8,6 +8,16 @@ async function Get(apiUrl) {
     } catch (error) {
         console.log(error)
     }
+}
+async function GetByUser(apiUrl,userID){
+    try {
+        const response = await fetch(apiUrl+userID)
+        let listarTareas =await response.json()
+        return listarTareas
 
-};
-export {Get}
+    } catch (error) {
+        console.log(error)
+    
+}
+}
+export {Get,GetByUser}
