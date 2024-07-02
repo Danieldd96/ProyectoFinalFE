@@ -28,6 +28,7 @@ const Home = ()=>{
                 <div>
                     <div className="listgames">
                         <h2>Lista de juegos</h2>
+                        <hr style={{paddingBottom:50}}/>
                         <div className="fondoListajuegos">
                             
                             <ul>
@@ -185,6 +186,7 @@ const Home = ()=>{
                     </div>
                     <div    >
                         <h2>Juegos nuevos</h2>
+                        <hr style={{paddingBottom:50}}/>
                         <div className="fondosNewgames">
                             
                             <ul >

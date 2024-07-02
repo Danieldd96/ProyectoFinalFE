@@ -1,16 +1,15 @@
 
 
-async function actualizarTarea(element,apiUrl) {///En este metodo cambiaremos el estado de la tarea actualizando la api
+async function actualizarJuego(apiUrl,id,objeto) {///En este metodo cambiaremos el estado de la tarea actualizando la api
     
     try {
-        element.estado=!element.estado
-        console.log(element)
-        const response = await fetch (apiUrl+element.id,{
+        
+        const response = await fetch (apiUrl+id,{
             method:"PUT",
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             },
-            body:JSON.stringify(element)
+            body:JSON.stringify(objeto)
         })
         let data = await response.json()
         console.log(data)
@@ -20,4 +19,4 @@ async function actualizarTarea(element,apiUrl) {///En este metodo cambiaremos el
     
 }
 
-export {actualizarTarea}
+export {actualizarJuego}

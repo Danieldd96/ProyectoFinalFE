@@ -39,8 +39,8 @@ function App() {
         <Route path='/carrito' element={<Carrito/>}></Route>
 
         </Routes>
-        <Info/>
         </Theme>
+        <Info/>
     </Router>
     </>
   )

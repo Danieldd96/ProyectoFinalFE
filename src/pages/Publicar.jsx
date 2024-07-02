@@ -1,8 +1,9 @@
-import { Box,Button,Flex,Grid,Heading,Text,AlertDialog } from '@radix-ui/themes'
+import { Box,Button,Flex,Grid,Heading,Text,AlertDialog,Dialog,TextField } from '@radix-ui/themes'
 import React, { useEffect, useState } from 'react'
 import { darDatos } from '../hooks/Post';
 import { GetByUser } from '../hooks/Get';
 import { deleteData } from '../hooks/Delete';
+import { actualizarJuego } from '../hooks/Put';
 
 
 
@@ -17,6 +18,12 @@ const Publicar = () => {
     const [lista,setLista]=useState([])
     const [reload,setReload] = useState(null)
     const [reloadD,setReloadD] = useState(null)
+    const [reloadDe,setReloadDe] = useState(null)
+
+    const [namenew,setnamenew] = useState("");
+    const [newprice,setnewprice] = useState("");
+    const [newdescription,setnewdescription] = useState("");
+    const [imgnew,setImgnew] = useState("");
     useEffect(()=>{
         
         const ListarProductos=async()=>{
@@ -24,7 +31,7 @@ const Publicar = () => {
             setLista(Lista)
         }
         ListarProductos()
-    },[reload,reloadD]);
+    },[reload,reloadD,reloadDe]);
     
     const newgames=async()=>{
 
@@ -33,7 +40,7 @@ const Publicar = () => {
             precio:precio,
             description:description,
             fecha:date,
-            img:image,
+            img:imgnew,
             userID:localStorage.getItem("idUsuario")
         }
         await darDatos(games,productsUrl)
@@ -44,6 +51,16 @@ const Publicar = () => {
         setReloadD(true)
 
     };
+    const newData= async(id)=>{
+        let nuevosdatos={
+            gameName:namenew,
+            precio:newprice,
+            description:newdescription,
+            img:image
+        }        
+        await actualizarJuego(product,id,nuevosdatos)
+        setReloadDe(true)
+    }
 
     function handleFileSelect(event) {
         const file = event.target.files[0]; 
@@ -52,6 +69,7 @@ const Publicar = () => {
             reader.onload = function(e) {
                 const fileContent = e.target.result;
                 setImg(fileContent);
+                setImgnew(fileContent);
             };
             reader.readAsDataURL(file);
         }
@@ -62,7 +80,7 @@ const Publicar = () => {
         <Heading>
             Publicar mi Juego
         </Heading>
-        <Box maxWidth="250px">
+        <Box maxWidth="250px" className='formGame'>
         <form action="">
             <Text as='div' size="3" weight="regular">
             <Grid align="center" gap="2">
@@ -98,6 +116,67 @@ const Publicar = () => {
                 <img src={newgames.img} style={{width:"300px",height:"170px"}}/>
                 <p style={{paddingTop:'20px'}}>Fecha de publicacion: <br/>{newgames.fecha}</p>
                 <p>El precio del producto: <br/>{newgames.precio} Colones</p>
+                <p>Descripcion: {newgames.description}</p>
+                <Dialog.Root>
+                <Dialog.Trigger>
+                    <Button>Edit profile</Button>
+                </Dialog.Trigger>
+
+                <Dialog.Content maxWidth="450px">
+                    <Dialog.Title>Editar datos del juego</Dialog.Title>
+                    <Dialog.Description size="2" mb="4">
+                    Crea cambios en los datos de tu juego
+                    </Dialog.Description>
+
+                    <Flex direction="column" gap="3">
+                    <label onChange={(e)=>setnamenew(e.target.value)}>
+                        <Text as="div" size="2" mb="1" weight="bold">
+                        Nombre del Juego
+                        </Text>
+                        <TextField.Root
+                        defaultValue={newgames.gameName}
+                        placeholder="Ingresa el nuevo nombre del juego"
+                        />
+                    </label>
+                    <label onChange={(e)=>setnewprice(e.target.value)}>
+                        <Text as="div" size="2" mb="1" weight="bold">
+                        Precio del juego
+                        </Text>
+                        <TextField.Root
+                        defaultValue={newgames.precio}
+                        placeholder="Ingresar precio nuevo"
+                        />
+                    </label>
+                    <label onChange={(e)=>setnewdescription(e.target.value)}>
+                        <Text as="div" size="2" mb="1" weight="bold">
+                        Descripcion del juego
+                        </Text>
+                        <TextField.Root
+                        defaultValue={newgames.description}
+                        placeholder="Ingresar nueva descripcion"
+                        />
+                    </label>
+                    <label onChange={(e)=>setImgnew(handleFileSelect(e))}>
+                        <Text as="div" size="2" mb="1" weight="bold">
+                        Nueva imagen
+                        </Text>
+                        <input type="file" src="" alt="" />
+                    </label>
+                    </Flex>
+
+                    <Flex gap="3" mt="4" justify="end">
+                    <Dialog.Close>
+                        <Button variant="soft" color="gray">
+                        Cancel
+                        </Button>
+                    </Dialog.Close>
+                    <Dialog.Close>
+                        <Button onClick={()=>newData(newgames.id)}>Save</Button>
+                    </Dialog.Close>
+                    </Flex>
+                </Dialog.Content>
+                </Dialog.Root>
+
                 <AlertDialog.Root>
                     <AlertDialog.Trigger>
                     <Button color="red">Eliminar Juego</Button>

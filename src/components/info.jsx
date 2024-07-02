@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Info() {
   return (
-    <div >
+    <div style={{backgroundColor:"black",color:"white"}} >
       <div  style={{padding:30}}>
         <Flex>
         <div className='logo' style={{backgroundColor:"gray", borderRadius:20, marginRight:20, marginBottom:20}}><p style={{paddingLeft:10, paddingTop:5}}>STICKY GAMES <img src="src/img/logo.png" width={30} height={30}/></p></div>
