@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Publicar from './pages/Publicar';
 import { useState } from 'react';
 import Carrito from './pages/Carrito';
+import Info from './components/info';
 
 function App() {
   const [color,setColor]=useState('dark')
@@ -24,6 +25,7 @@ function App() {
     }
   }
   return (
+    <>
     <Router>
         <Theme appearance={color}>
         <NavBar funcionColor={funcionColor}/>
@@ -37,8 +39,10 @@ function App() {
         <Route path='/carrito' element={<Carrito/>}></Route>
 
         </Routes>
+        <Info/>
         </Theme>
     </Router>
+    </>
   )
 }
 

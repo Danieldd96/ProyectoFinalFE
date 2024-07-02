@@ -1,19 +1,51 @@
+
 .contPrefil{
   padding: 40px 50px;
 }
+
+.fondoListajuegos{
+  background-color: #2d2d7c52;
+  backdrop-filter: blur(50px);
+  border: 5px solid black;
+  border-radius: 50px;
+}
 .Destacados{
   padding: 20px;
+  background-color: #0f0226;
 }
 .Destacados h2{
-  padding: 20px;
+  padding: 25px 30px;
 }
 .contenedorImgs{
   background-color: #333;
   border-radius: 30px;
+  
 }
+.listGamesimg img{
+  border-radius: 30px;
+}
+.carruselFondo{
+  background-image: url(/src/img/anime-8788959.jpg);
+  border: 5px solid black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+}
+
+
 .listgames{
+  
   padding-top: 60px;
   padding-bottom: 40px;
+}
+.fondosNewgames{
+  background-color: #2d2d7c52;
+  border: 5px solid black;
+  border-radius: 50px;
+  margin-bottom: 50px;
+}
+.fondosNewgames img{
+  border-radius: 30px;
 }
 .register{
   display: flex;

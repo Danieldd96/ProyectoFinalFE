@@ -1,13 +1,14 @@
 import { Box,Button,Flex,Grid,Heading,Text,AlertDialog } from '@radix-ui/themes'
 import React, { useEffect, useState } from 'react'
 import { darDatos } from '../hooks/Post';
-import { Get, GetByUser } from '../hooks/Get';
+import { GetByUser } from '../hooks/Get';
 import { deleteData } from '../hooks/Delete';
 
 
 
 const Publicar = () => {
     const productsUrl="http://localhost:3001/products?userID="
+    const product="http://localhost:3001/products/"
     const [game,setGame] = useState("");
     const [precio,setPrecio] = useState("");
     const [image,setImg] = useState("");
@@ -39,7 +40,7 @@ const Publicar = () => {
         setReload(true)
     };
     const deleteGame= async(id)=>{
-        await deleteData(productsUrl,id)
+        await deleteData(product,id)
         setReloadD(true)
 
     };

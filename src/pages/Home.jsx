@@ -2,6 +2,7 @@ import Carrusel from "../components/Carrusel"
 import { ScrollArea,AlertDialog,Button,Flex } from "@radix-ui/themes";
 import { useState,useEffect } from "react";
 import { Get } from "../hooks/Get";
+
 const Home = ()=>{
     const productsUrl="http://localhost:3001/products/"
     
@@ -17,21 +18,23 @@ const Home = ()=>{
     },[]);
     console.log(lista)
     return(
-        <div>
+        <div className="Fondo">
             <div className="Destacados">
                 <h2>Destacados y recomendados</h2>
                 <hr style={{paddingBottom:50}}/>
+                <div className="carruselFondo">
                 <Carrusel/>
+                </div>
                 <div>
                     <div className="listgames">
                         <h2>Lista de juegos</h2>
-                        <div >
-                            <hr style={{paddingBottom:50}}/>
-                            <ul >
+                        <div className="fondoListajuegos">
+                            
+                            <ul>
                                 
+                                <div className="listGamesimg" style={{padding:25}}>
                             <ScrollArea type="always" scrollbars="vertical" style={{ width:800, height: 380 }}>
-                                <div>
-                                    <ul>
+                                    <ul >
                                     <p style={{fontSize:"28PX"}}>Overwatch 2</p>
                                     <img src="src/img/Overwatch.jpeg"  width={300} height={170}/><p>Precio: <br />30000 colones</p>
                                     <AlertDialog.Root>
@@ -174,20 +177,20 @@ const Home = ()=>{
                                         </AlertDialog.Content>
                                         </AlertDialog.Root>
                                     </ul>
-                                </div>
                             </ScrollArea>
+                                </div>
                                 
                             </ul>
                         </div>
                     </div>
-                    <div className="newgames">
+                    <div    >
                         <h2>Juegos nuevos</h2>
-                        <div >
-                            <hr style={{paddingBottom:50}}/>
+                        <div className="fondosNewgames">
+                            
                             <ul >
                                 
+                            <div className="imgsNewgames" style={{padding:25}}>
                             <ScrollArea type="always" scrollbars="vertical" style={{ width:800, height: 380 }}>
-                            <div>
             
                                 {lista.map((newgames)=>(
                                     <ul key={newgames.id}>
@@ -223,8 +226,8 @@ const Home = ()=>{
                                         
                                     </ul>
                                 ))}
-                            </div>
                             </ScrollArea>
+                            </div>
                                 
                             </ul>
                         </div>
