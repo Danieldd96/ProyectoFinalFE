@@ -12,6 +12,8 @@ import Publicar from './pages/Publicar';
 import { useState } from 'react';
 import Carrito from './pages/Carrito';
 import Info from './components/info';
+import AuthProvider from './contexts/AuthProvider';
+import Rutas_Privadas from './routes/Rutas_Privadas';
 
 function App() {
   const [color,setColor]=useState('dark')
@@ -27,20 +29,22 @@ function App() {
   return (
     <>
     <Router>
+      <AuthProvider>
         <Theme appearance={color}>
         <NavBar funcionColor={funcionColor}/>
         <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/registro' element={<Register/>}></Route>
-        <Route path='/perfil' element={<Perfil/>}></Route>
+        <Route path='/perfil' element={<Rutas_Privadas route={<Publicar/>}/>}></Route>
         <Route path='/contact' element={<Contact/>}></Route>
-        <Route path='/publicar' element={<Publicar/>}></Route>
+        <Route path='/publicar' element={<Rutas_Privadas route={<Publicar/>}/>}></Route>
         <Route path='/carrito' element={<Carrito/>}></Route>
-
         </Routes>
         </Theme>
         <Info/>
+        </AuthProvider>
+
     </Router>
     </>
   )

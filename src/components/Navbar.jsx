@@ -22,7 +22,12 @@ const NavBar =({funcionColor})=>{
     }
   }
   const carrito=()=>{
-    navegar('/carrito')
+    if (mail) {
+      navegar('/carrito')
+    } else {
+      navegar('/login')
+    }
+    
   }
   
   return(

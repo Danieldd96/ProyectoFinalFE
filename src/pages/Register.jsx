@@ -7,10 +7,10 @@ const Register = ()=>{
     const [user,setUser] = useState(""); 
     const [email,setEmail] = useState(""); 
     const [pass,setPass] = useState(""); 
-    const [repass,setRePass] = useState(""); 
+    
     let apiUrl="http://localhost:3001/users/"
     const Guardar = async()=>{ 
-        if (!user&&!email&&!pass&&!repass) { 
+        if (!user&&!email&&!pass) { 
             alert("Inserte texto por favor")
           }else{
             console.log("Entrando");
@@ -47,11 +47,7 @@ const Register = ()=>{
                     placeholder="Contraseña" 
                     required id="password" onChange={(e)=>setPass(e.target.value)}/>
                 </div>
-                <div className="input-box">
-                    <input type="password" 
-                    placeholder="Confirma tu contraseña" 
-                    required id="password2" onChange={(e)=>setRePass(e.target.value)}/>
-                </div>
+                
 
                 <button type="button" onClick={Guardar} className="btn" >Register</button>
                 

@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom"
-import {  useState } from "react"
+import {  useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import {Get} from "../hooks/Get"
+import { AuthContext } from "../contexts/AuthProvider"
 
 const Login = ()=>{
     const navegar = useNavigate();
     const [email, setEmail] = useState("");
     const [clave, setClave] = useState("");
+    const {login} = useContext(AuthContext)
+
     let apiUrl="http://localhost:3001/users/"
   
   
@@ -30,16 +33,20 @@ const Login = ()=>{
             setTimeout(() => {
               
               navegar("/");
+              login();
             }, 1000);
+          }else{
+            alert("Email o contraseña incorrectos");
           }
         });
     
-        alert("Email o contraseña incorrectos");
+        
     
       } catch (error) {
         console.log(error);
         alert("Error al iniciar sesión");
       }
+
     };
     return(
         <div className="register" >
