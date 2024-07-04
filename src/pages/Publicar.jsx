@@ -51,14 +51,15 @@ const Publicar = () => {
         setReloadD(true)
 
     };
-    const newData= async(id)=>{
+    const newData= async(newgame)=>{
         let nuevosdatos={
-            gameName:namenew,
-            precio:newprice,
-            description:newdescription,
-            img:image
+            gameName:namenew?namenew:newgame.gameName,
+            precio:newprice?newprice:newgame.precio,
+            description:newdescription?newdescription:newgame.description,
+            img:image?image:newgame.img,
+            fecha:newgame.fecha
         }        
-        await actualizarJuego(product,id,nuevosdatos)
+        await actualizarJuego(product,newgame.id,nuevosdatos)
         setReloadDe(true)
     }
 
@@ -171,7 +172,7 @@ const Publicar = () => {
                         </Button>
                     </Dialog.Close>
                     <Dialog.Close>
-                        <Button onClick={()=>newData(newgames.id)}>Save</Button>
+                        <Button onClick={()=>newData(newgames)}>Save</Button>
                     </Dialog.Close>
                     </Flex>
                 </Dialog.Content>

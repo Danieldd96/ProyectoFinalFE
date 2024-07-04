@@ -4,7 +4,7 @@ import { Get } from '../hooks/Get'
 import { Box,Inset,Card,Strong,Text, Grid,DataList,Link,Button } from '@radix-ui/themes'
 
 export default function Carrito() {
-  const productsUrl="http://localhost:3001/products/"
+  const productsUrl="http://localhost:3001/users/"
     
     const [lista,setLista]=useState([])
 

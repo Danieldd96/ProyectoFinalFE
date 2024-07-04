@@ -10,7 +10,7 @@ const Register = ()=>{
     
     let apiUrl="http://localhost:3001/users/"
     const Guardar = async()=>{ 
-        if (!user&&!email&&!pass) { 
+        if (user.trim()===""&&email.trim()===""&&pass.trim()==="") { 
             alert("Inserte texto por favor")
           }else{
             console.log("Entrando");
