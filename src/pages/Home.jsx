@@ -4,37 +4,32 @@ import { useState,useEffect } from "react";
 import { Get } from "../hooks/Get";
 
 const Home = ()=>{
-    const productsUrl="http://localhost:3001/products/"
-    
-    const [lista,setLista]=useState([])
+    const productsUrl="http://localhost:3001/products/"     ///Esta url es para obtener los productos del api 
+    const [lista,setLista]=useState([])                     ///Este estado sera donde guardare los datos del api
 
     useEffect(()=>{
-        
-        const ListarProductos=async()=>{
-            const Lista=await Get(productsUrl)
+        const ListarProductos=async()=>{                    ///Listar productos hara que Lista espere la respuesta del Get pasandole el url del api que necesitamos
+            const Lista=await Get(productsUrl)              ///cambiando el estdo y haciendo que el useState lista contenga los productos de la api
             setLista(Lista)
         }
-        ListarProductos()
+        ListarProductos()                                   ///Y al final llamando la funcion con su respectivo useEffect para que se inicie una vez la pagina cargue
     },[]);
-    console.log(lista)
     return(
         <div className="Fondo">
             <div className="Destacados">
                 <h2>Destacados y recomendados</h2>
                 <hr style={{paddingBottom:50}}/>
-                <div className="carruselFondo">
-                <Carrusel/>
-                </div>
-                <div>
+                    <div className="carruselFondo">
+                        <Carrusel/>
+                        </div>
+                    <div>
                     <div className="listgames">
                         <h2>Lista de juegos</h2>
                         <hr style={{paddingBottom:50}}/>
                         <div className="fondoListajuegos">
-                            
                             <ul>
-                                
                                 <div className="listGamesimg" style={{padding:25}}>
-                            <ScrollArea type="always" scrollbars="vertical" style={{ width:800, height: 380 }}>
+                                    <ScrollArea type="always" scrollbars="vertical" style={{ width:800, height: 380 }}>
                                     <ul >
                                     <p style={{fontSize:"28PX"}}>Overwatch 2</p>
                                     <img src="src/img/Overwatch.jpeg"  width={300} height={170}/><p>Precio: <br />30000 colones</p>
@@ -155,8 +150,6 @@ const Home = ()=>{
                                             <AlertDialog.Trigger>
                                             <Button color="red">Agregar al carrito</Button>
                                             </AlertDialog.Trigger>
-                                            
-                        
                                             <AlertDialog.Content maxWidth="450px">
                                             <AlertDialog.Title>Articulo agregado al carrito</AlertDialog.Title>
                                             <AlertDialog.Description size="2">
@@ -178,64 +171,54 @@ const Home = ()=>{
                                         </AlertDialog.Content>
                                         </AlertDialog.Root>
                                     </ul>
-                            </ScrollArea>
+                                    </ScrollArea>
                                 </div>
-                                
                             </ul>
                         </div>
                     </div>
-                    <div    >
+                    <div>
                         <h2>Juegos nuevos</h2>
                         <hr style={{paddingBottom:50}}/>
-                        <div className="fondosNewgames">
-                            
-                            <ul >
-                                
-                            <div className="imgsNewgames" style={{padding:25}}>
-                            <ScrollArea type="always" scrollbars="vertical" style={{ width:800, height: 380 }}>
-            
-                                {lista.map((newgames)=>(
-                                    <ul key={newgames.id}>
-                                        <p style={{fontSize:"28PX"}}>{newgames.gameName}</p>
-                                        <img src={newgames.img} style={{width:"300px",height:"170px"}}/>
-                                        <p>El precio del producto: <br/>{newgames.precio} Colones</p>
-                                        <AlertDialog.Root>
-                                            <AlertDialog.Trigger>
-                                            <Button color="red">Agregar al carrito</Button>
-                                            </AlertDialog.Trigger>
-                                            
-                        
-                                            <AlertDialog.Content maxWidth="450px">
-                                            <AlertDialog.Title>Articulo agregado al carrito</AlertDialog.Title>
-                                            <AlertDialog.Description size="2">
-                                            Esta seguro de querer eliminar su cuenta?
-                                            </AlertDialog.Description>
-                        
-                                        <Flex gap="3" mt="4" justify="end">
-                                        <AlertDialog.Cancel>
-                                            <Button variant="soft" color="gray">
-                                            Continuar comprando
-                                            </Button>
-                                        </AlertDialog.Cancel>
-                                        <AlertDialog.Action>
-                                            <Button variant="solid" color="red">
-                                            Ir al carrito
-                                            </Button>
-                                        </AlertDialog.Action>
-                                        </Flex>
-                                        </AlertDialog.Content>
-                                        </AlertDialog.Root>
-                                        
-                                    </ul>
-                                ))}
-                            </ScrollArea>
+                            <div className="fondosNewgames">
+                                <ul >   
+                                    <div className="imgsNewgames" style={{padding:25}}>
+                                        <ScrollArea type="always" scrollbars="vertical" style={{ width:800, height: 380 }}>
+                                        {lista.map((newgames)=>(
+                                            <ul key={newgames.id}>
+                                                <p style={{fontSize:"28PX"}}>{newgames.gameName}</p>
+                                                <img src={newgames.img} style={{width:"300px",height:"170px"}}/>
+                                                <p>El precio del producto: <br/>{newgames.precio} Colones</p>
+                                                <AlertDialog.Root>
+                                                    <AlertDialog.Trigger>
+                                                    <Button color="red">Agregar al carrito</Button>
+                                                    </AlertDialog.Trigger>
+                                                    <AlertDialog.Content maxWidth="450px">
+                                                    <AlertDialog.Title>Articulo agregado al carrito</AlertDialog.Title>
+                                                    <AlertDialog.Description size="2">
+                                                    Esta seguro de querer eliminar su cuenta?
+                                                    </AlertDialog.Description>
+                                                <Flex gap="3" mt="4" justify="end">
+                                                <AlertDialog.Cancel>
+                                                    <Button variant="soft" color="gray">
+                                                    Continuar comprando
+                                                    </Button>
+                                                </AlertDialog.Cancel>
+                                                <AlertDialog.Action>
+                                                    <Button variant="solid" color="red">
+                                                    Ir al carrito
+                                                    </Button>
+                                                </AlertDialog.Action>
+                                                </Flex>
+                                                </AlertDialog.Content>
+                                                </AlertDialog.Root>
+                                            </ul>
+                                        ))}
+                                        </ScrollArea>
+                                    </div>
+                                </ul>
                             </div>
-                                
-                            </ul>
-                        </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     )
