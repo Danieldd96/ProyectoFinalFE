@@ -8,7 +8,8 @@
   backdrop-filter: blur(50px);
   border: 5px solid black;
   border-radius: 50px;
-  width: 130vh;
+  max-width: 130vh;
+  
 }
 .formGame{
   border: 2px solid black;
@@ -29,6 +30,7 @@
 }
 .listGamesimg img{
   border-radius: 30px;
+  margin: 0 auto;
 }
 .carruselFondo{
   background-image: url(/src/img/anime-8788959.jpg);
@@ -50,7 +52,8 @@
   border: 5px solid black;
   border-radius: 50px;
   margin-bottom: 50px;
-  width: 130vh;
+  max-width: 130vh;
+
 }
 .fondosNewgames img{
   border-radius: 30px;
