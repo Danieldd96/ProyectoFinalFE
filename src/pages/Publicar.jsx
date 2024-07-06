@@ -18,9 +18,6 @@ const Publicar = () => {
     const [date,setFecha] = useState("");
     ///Estados generales
     const [lista,setLista]=useState([])
-    const [reload,setReload] = useState(null)
-    const [reloadD,setReloadD] = useState(null)
-    const [reloadDe,setReloadDe] = useState(null)
     ///Estados para actualizar productos
     const [namenew,setnamenew] = useState("");
     const [newprice,setnewprice] = useState("");
@@ -33,7 +30,7 @@ const Publicar = () => {
             setLista(Lista)
         }
         ListarProductos()
-    },[reload,reloadD,reloadDe]);
+    },[lista]);
     ///Funcion para crear un nuevo producto
     const newgames=async()=>{
         let games={                                   ///El let games sera el objeto que sera pasado al metodo Post el cual guardara el producto.
@@ -45,12 +42,10 @@ const Publicar = () => {
             userID:localStorage.getItem("idUsuario")
         }
         await darDatos(games,productsUrl)
-        setReload(true)
     };
     ///Funcion para borrar productos
     const deleteGame= async(id)=>{       ///En esta funcion recibiremos un parametro que obtendra el id el cual se usara para eliminar el producto en especico
         await deleteData(product,id)
-        setReloadD(true)
     };
     ///Funcion para actualizar los datos de los productos
     const newData= async(newgame)=>{                                          ///El const newData recibira un parametro que contendra los productos
@@ -64,7 +59,6 @@ const Publicar = () => {
         ///Al metodo Put le pasaremos los parametros "product" que es el url de la api,el parametro "newgame" se le agrega un .id para que el metodo actualice los datos
         // del producto en especifico y se le pasaria el parametro "nuevosdatos" que contendra los datos que se actualizaran 
         await actualizarJuego(product,newgame.id,nuevosdatos)
-        setReloadDe(true)
     }
     ///Esta funcion recibira un evento que transformara la imagen recibida con el FileReader y que el resultado sea manda a los estados
     function handleFileSelect(event) {

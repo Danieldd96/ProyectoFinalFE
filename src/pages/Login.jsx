@@ -22,12 +22,16 @@ const Login = ()=>{
        const user=datos.find((user)=>user.email==email)
        console.log("Usuario encontrado",user)
        if (user.pass==clave) {
+        localStorage.setItem("email",user.email)
+        localStorage.setItem("idUsuario",user.id)
+        localStorage.setItem("usuario",user.user)
         navegar('/')
         login()
        }else{
-        console.log("su usuario fue autenticado correctamente");
+        alert("usuario o contraseña es incorrecto")
         obtener()
        }
+       
     };
     return(
         <div className="register" >
