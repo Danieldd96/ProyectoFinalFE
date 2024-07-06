@@ -19,19 +19,19 @@ const Login = ()=>{
        setDatos(data)
     }
     const Guardar = async () => {
-       const user=datos.find((user)=>user.email==email)
-       console.log("Usuario encontrado",user)
-       if (user.pass==clave) {
-        localStorage.setItem("email",user.email)
-        localStorage.setItem("idUsuario",user.id)
-        localStorage.setItem("usuario",user.user)
-        navegar('/')
-        login()
-       }else{
-        alert("usuario o contraseña es incorrecto")
-        obtener()
-       }
-       
+      if (!email==""&&!clave=="") {
+        const user=datos.find((user)=>user.email==email)
+        console.log("Usuario encontrado",user)
+        if (user.pass==clave) {
+         localStorage.setItem("email",user.email)
+         localStorage.setItem("idUsuario",user.id)
+         localStorage.setItem("usuario",user.user)
+         navegar('/')
+         login()
+        }
+      } else {
+        alert('Usuario o contraseña incorrectos')
+      }
     };
     return(
         <div className="register" >

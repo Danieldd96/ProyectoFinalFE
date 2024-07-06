@@ -2,11 +2,12 @@ import Carrusel from "../components/Carrusel"
 import { ScrollArea,AlertDialog,Button,Flex } from "@radix-ui/themes";
 import { useState,useEffect } from "react";
 import { Get } from "../hooks/Get";
-
+import { actualizarJuego } from "../hooks/Put";
 const Home = ()=>{
+    let apiUrl=`http://localhost:3001/users/`
     const productsUrl="http://localhost:3001/products/"     ///Esta url es para obtener los productos del api 
     const [lista,setLista]=useState([])                     ///Este estado sera donde guardare los datos del api
-
+    
     useEffect(()=>{
         const ListarProductos=async()=>{                    ///Listar productos hara que Lista espere la respuesta del Get pasandole el url del api que necesitamos
             const Lista=await Get(productsUrl)              ///cambiando el estdo y haciendo que el useState lista contenga los productos de la api
@@ -14,6 +15,13 @@ const Home = ()=>{
         }
         ListarProductos()                                   ///Y al final llamando la funcion con su respectivo useEffect para que se inicie una vez la pagina cargue
     },[]);
+    const carrito= async(newgames)=>{
+
+        let getGame={
+            myGames:newgames
+        }
+        await actualizarJuego(apiUrl,localStorage.getItem('idUsuario'),getGame)
+    }
     return(
         <div className="Fondo">
             <div className="Destacados">
@@ -190,7 +198,7 @@ const Home = ()=>{
                                                 <p>El precio del producto: <br/>{newgames.precio} Colones</p>
                                                 <AlertDialog.Root>
                                                     <AlertDialog.Trigger>
-                                                    <Button color="red">Agregar al carrito</Button>
+                                                    <Button onClick={()=>carrito(newgames)} color="red">Agregar al carrito</Button>
                                                     </AlertDialog.Trigger>
                                                     <AlertDialog.Content maxWidth="450px">
                                                     <AlertDialog.Title>Articulo agregado al carrito</AlertDialog.Title>
