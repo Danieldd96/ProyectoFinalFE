@@ -51,7 +51,7 @@ const NavBar =({funcionColor})=>{
             Tus juegos
           </a>
           <ul className="dropdown-menu" >
-            <li><a className="dropdown-item" href="#" >Biblioteca de juegos</a></li>
+            <li><Link className="dropdown-item" to="/biblioteca" >Biblioteca de juegos</Link></li>
             <li><a className="dropdown-item" href="#" onClick={publicar}>Publicar Juegos</a></li>
             <li><hr className="dropdown-divider"/></li>
             <li><Link className="dropdown-item" to="/contact">Acerca de</Link></li>

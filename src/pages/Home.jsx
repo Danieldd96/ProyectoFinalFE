@@ -2,9 +2,13 @@ import Carrusel from "../components/Carrusel"
 import { ScrollArea,AlertDialog,Button,Flex } from "@radix-ui/themes";
 import { useState,useEffect } from "react";
 import { Get } from "../hooks/Get";
-import { actualizarJuego } from "../hooks/Put";
+import { useNavigate } from "react-router-dom";
+import { darDatos } from "../hooks/Post";
+
+
 const Home = ()=>{
-    let apiUrl=`http://localhost:3001/users/`
+    const carritoUrl="http://localhost:3001/carrito"
+    const navegar = useNavigate()
     const productsUrl="http://localhost:3001/products/"     ///Esta url es para obtener los productos del api 
     const [lista,setLista]=useState([])                     ///Este estado sera donde guardare los datos del api
     
@@ -16,11 +20,7 @@ const Home = ()=>{
         ListarProductos()                                   ///Y al final llamando la funcion con su respectivo useEffect para que se inicie una vez la pagina cargue
     },[]);
     const carrito= async(newgames)=>{
-
-        let getGame={
-            myGames:newgames
-        }
-        await actualizarJuego(apiUrl,localStorage.getItem('idUsuario'),getGame)
+        localStorage.setItem("juegosCarrito",newgames)
     }
     return(
         <div className="Fondo">
@@ -50,7 +50,7 @@ const Home = ()=>{
                                             <AlertDialog.Content maxWidth="450px">
                                             <AlertDialog.Title>Articulo agregado al carrito</AlertDialog.Title>
                                             <AlertDialog.Description size="2">
-                                            Esta seguro de querer eliminar su cuenta?
+                                            Articulo agregado al carrito
                                             </AlertDialog.Description>
                         
                                         <Flex gap="3" mt="4" justify="end">
@@ -60,7 +60,7 @@ const Home = ()=>{
                                             </Button>
                                         </AlertDialog.Cancel>
                                         <AlertDialog.Action>
-                                            <Button variant="solid" color="red">
+                                            <Button onClick={()=>{navegar('/carrito')}} variant="solid" color="red">
                                             Ir al carrito
                                             </Button>
                                         </AlertDialog.Action>
@@ -79,7 +79,7 @@ const Home = ()=>{
                                             <AlertDialog.Content maxWidth="450px">
                                             <AlertDialog.Title>Articulo agregado al carrito</AlertDialog.Title>
                                             <AlertDialog.Description size="2">
-                                            Esta seguro de querer eliminar su cuenta?
+                                            Articulo agregado al carrito
                                             </AlertDialog.Description>
                         
                                         <Flex gap="3" mt="4" justify="end">
@@ -89,7 +89,7 @@ const Home = ()=>{
                                             </Button>
                                         </AlertDialog.Cancel>
                                         <AlertDialog.Action>
-                                            <Button variant="solid" color="red">
+                                            <Button onClick={()=>{navegar('/carrito')}} variant="solid" color="red">
                                             Ir al carrito
                                             </Button>
                                         </AlertDialog.Action>
@@ -107,7 +107,7 @@ const Home = ()=>{
                                             <AlertDialog.Content maxWidth="450px">
                                             <AlertDialog.Title>Articulo agregado al carrito</AlertDialog.Title>
                                             <AlertDialog.Description size="2">
-                                            Esta seguro de querer eliminar su cuenta?
+                                            Articulo agregado al carrito
                                             </AlertDialog.Description>
                         
                                         <Flex gap="3" mt="4" justify="end">
@@ -117,7 +117,7 @@ const Home = ()=>{
                                             </Button>
                                         </AlertDialog.Cancel>
                                         <AlertDialog.Action>
-                                            <Button variant="solid" color="red">
+                                            <Button onClick={()=>{navegar('/carrito')}} variant="solid" color="red">
                                             Ir al carrito
                                             </Button>
                                         </AlertDialog.Action>
@@ -135,7 +135,7 @@ const Home = ()=>{
                                             <AlertDialog.Content maxWidth="450px">
                                             <AlertDialog.Title>Articulo agregado al carrito</AlertDialog.Title>
                                             <AlertDialog.Description size="2">
-                                            Esta seguro de querer eliminar su cuenta?
+                                            Articulo agregado al carrito
                                             </AlertDialog.Description>
                         
                                         <Flex gap="3" mt="4" justify="end">
@@ -145,7 +145,7 @@ const Home = ()=>{
                                             </Button>
                                         </AlertDialog.Cancel>
                                         <AlertDialog.Action>
-                                            <Button variant="solid" color="red">
+                                            <Button onClick={()=>{navegar('/carrito')}} variant="solid" color="red">
                                             Ir al carrito
                                             </Button>
                                         </AlertDialog.Action>
@@ -161,7 +161,7 @@ const Home = ()=>{
                                             <AlertDialog.Content maxWidth="450px">
                                             <AlertDialog.Title>Articulo agregado al carrito</AlertDialog.Title>
                                             <AlertDialog.Description size="2">
-                                            Esta seguro de querer eliminar su cuenta?
+                                            Articulo agregado al carrito
                                             </AlertDialog.Description>
                         
                                         <Flex gap="3" mt="4" justify="end">
@@ -171,7 +171,7 @@ const Home = ()=>{
                                             </Button>
                                         </AlertDialog.Cancel>
                                         <AlertDialog.Action>
-                                            <Button variant="solid" color="red">
+                                            <Button onClick={()=>{navegar('/carrito')}} variant="solid" color="red">
                                             Ir al carrito
                                             </Button>
                                         </AlertDialog.Action>
@@ -203,7 +203,7 @@ const Home = ()=>{
                                                     <AlertDialog.Content maxWidth="450px">
                                                     <AlertDialog.Title>Articulo agregado al carrito</AlertDialog.Title>
                                                     <AlertDialog.Description size="2">
-                                                    Esta seguro de querer eliminar su cuenta?
+                                                    Articulo agregado al carrito
                                                     </AlertDialog.Description>
                                                 <Flex gap="3" mt="4" justify="end">
                                                 <AlertDialog.Cancel>
@@ -212,7 +212,7 @@ const Home = ()=>{
                                                     </Button>
                                                 </AlertDialog.Cancel>
                                                 <AlertDialog.Action>
-                                                    <Button variant="solid" color="red">
+                                                    <Button onClick={()=>{navegar('/carrito')}} variant="solid" color="red">
                                                     Ir al carrito
                                                     </Button>
                                                 </AlertDialog.Action>

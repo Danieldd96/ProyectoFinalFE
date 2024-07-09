@@ -14,6 +14,7 @@ import Carrito from './pages/Carrito';
 import Info from './components/info';
 import AuthProvider from './contexts/AuthProvider';
 import Rutas_Privadas from './routes/Rutas_Privadas';
+import Biblioteca from './pages/Biblioteca';
 
 function App() {
   const [color,setColor]=useState('dark')
@@ -40,6 +41,7 @@ function App() {
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/publicar' element={<Rutas_Privadas route={<Publicar/>}/>}></Route>
         <Route path='/carrito' element={<Carrito/>}></Route>
+        <Route path='/biblioteca' element={<Biblioteca/>}></Route>
         </Routes>
         </Theme>
         <Info/>
