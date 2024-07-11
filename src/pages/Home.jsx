@@ -3,14 +3,14 @@ import { ScrollArea,AlertDialog,Button,Flex } from "@radix-ui/themes";
 import { useState,useEffect } from "react";
 import { Get } from "../hooks/Get";
 import { useNavigate } from "react-router-dom";
-import { darDatos } from "../hooks/Post";
+import ScrollButton from "../components/ScrollButton";
 
 
 const Home = ()=>{
-    const carritoUrl="http://localhost:3001/carrito"
     const navegar = useNavigate()
     const productsUrl="http://localhost:3001/products/"     ///Esta url es para obtener los productos del api 
     const [lista,setLista]=useState([])                     ///Este estado sera donde guardare los datos del api
+
     
     useEffect(()=>{
         const ListarProductos=async()=>{                    ///Listar productos hara que Lista espere la respuesta del Get pasandole el url del api que necesitamos
@@ -29,7 +29,7 @@ const Home = ()=>{
                 <hr style={{paddingBottom:50}}/>
                     <div className="carruselFondo">
                         <Carrusel/>
-                        </div>
+                    </div>
                     <div>
                     <div className="listgames">
                         <h2>Lista de juegos</h2>
@@ -228,6 +228,7 @@ const Home = ()=>{
                     </div>
                 </div>
             </div>
+            <ScrollButton/>
         </div>
     )
 }

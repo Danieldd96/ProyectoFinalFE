@@ -4,6 +4,7 @@ import { darDatos } from '../hooks/Post';
 import { GetByUser } from '../hooks/Get';
 import { deleteData } from '../hooks/Delete';
 import { actualizarJuego } from '../hooks/Put';
+import ScrollButton from '../components/ScrollButton';
 
 
 
@@ -218,6 +219,7 @@ const Publicar = () => {
         </Box>
         </Flex>
       </Box>
+      <ScrollButton/>
     </div>
   )
 }

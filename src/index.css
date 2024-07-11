@@ -56,6 +56,17 @@ img {
   z-index: 1;
   cursor: pointer;
 }
+.topArrow {
+  position: fixed;
+  top: 65%;
+  transform: translate(0);
+  left: 210vh;
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 1;
+  cursor: pointer;
+}
 
 .rightArrow {
   position: absolute;
