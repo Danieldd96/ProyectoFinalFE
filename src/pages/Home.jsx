@@ -20,7 +20,7 @@ const Home = ()=>{
         ListarProductos()                                   ///Y al final llamando la funcion con su respectivo useEffect para que se inicie una vez la pagina cargue
     },[]);
     const carrito= async(newgames)=>{
-        localStorage.setItem("juegosCarrito",newgames)
+        localStorage.setItem("juegosCarrito",newgames.id)
     }
     return(
         <div className="Fondo">
