@@ -64,10 +64,10 @@ const NavBar =({funcionColor})=>{
       <Flex>
       <Switch variant="classicsoft" color="cyan" onClick={funcionColor} />
       </Flex>
-      <form className="d-flex" role="search">
+      {/* <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Buscar juego" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
+      </form> */}
     </div>
   </div>
 </nav>
