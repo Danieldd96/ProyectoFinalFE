@@ -1,36 +1,8 @@
 {
   "users": [
     {
-      "id": "63f0",
-      "user": "Jose Miguel",
-      "email": "dsd",
-      "pass": "",
-      "state": false
-    },
-    {
-      "id": "53c3",
-      "user": "Jose Miguel",
-      "email": "ddelgadoa@fwdcostarica.com",
-      "pass": "1",
-      "state": false
-    },
-    {
-      "id": "0c27",
-      "user": " ",
-      "email": "",
-      "pass": " ",
-      "state": false
-    },
-    {
-      "id": "b54d",
-      "user": "dad",
-      "email": "ddelgado@fwdcostarica.com",
-      "pass": "1",
-      "state": false
-    },
-    {
       "id": "031b",
-      "user": "sasasasa",
+      "user": "Daniel",
       "email": "ddelgadoaSa@fwdcostarica.com",
       "pass": "12",
       "state": false

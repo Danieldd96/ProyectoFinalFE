@@ -59,7 +59,6 @@ img {
 .topArrow {
   position: fixed;
   top: 65%;
-  transform: translate(0);
   left: 210vh;
   font-size: 50px;
   font-weight: 700;

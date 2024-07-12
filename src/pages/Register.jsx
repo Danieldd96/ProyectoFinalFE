@@ -1,20 +1,34 @@
 import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { darDatos } from "../hooks/Post";
-
+import { Get } from "../hooks/Get";
 const Register = ()=>{
     const navegar = useNavigate('')   ///Este navegar me permitira trasladarme a otra pagina
     ///Estos estados se utilizaran para contener los valores de sus respectivos inputs
     const [user,setUser] = useState(""); 
     const [email,setEmail] = useState(""); 
-    const [pass,setPass] = useState(""); 
+    const [pass,setPass] = useState("");
+    const [datos,setDatos]= useState("")
     ///Esta url es el api en el cual guardaremos los usuarios
     let apiUrl="http://localhost:3001/users/"
-    const Guardar = async()=>{                ///Esta funcion Guardar sera la que mandara el objetos al metodo Post
-        ///Este if verificara si los estados contienen vacios y si los contiene manda un alert que pedira que se coloque texto
-        if (user.trim()===""&&email.trim()===""&&pass.trim()==="") {
+    useEffect(()=>{
+        obtener()
+      },[])
+      async function obtener() {
+        const data= await Get(apiUrl)
+         setDatos(data)
+      }
+    const Guardar = async()=>{     ///Esta funcion Guardar sera la que mandara el objetos al metodo Post
+       
+        const userExist=datos.find((acUser)=>acUser.email===email)
+        if (userExist) {
+            alert("Email ya registrado")
+        }else{
+        if (user.trim()===""||email.trim()===""||pass.trim()==="") { ///Este if verificara si los estados contienen vacios y si los contiene manda un alert que pedira que se coloque texto
+            //obtiene los datos del usuario
+            // valida si ya existe 
             alert("Inserte texto por favor")
-          }else{                         ///Si no esta vacio se mandara el objeto let usuarios que tendra los estados especificos
+          }else {                         ///Si no esta vacio se mandara el objeto let usuarios que tendra los estados especificos
             console.log("Entrando");
             let usuarios={
                 user:user,
@@ -28,6 +42,7 @@ const Register = ()=>{
             }, 1000);
           }
         }
+    }
     return(
         <div className="register" >
             <div className="wrapper">
